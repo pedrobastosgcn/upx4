@@ -17,12 +17,29 @@ const pool = new Pool({
 
 app.use(bodyParser.json());
 
-// Example endpoint to get data from the database
-app.get('/api/fullCatalog', async (req, res) => {
+// GET endpoint para obter o catálogo completo do banco de dados
+app.get('/api/full-catalog', async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM catalog_table');
     res.json(result.rows);
     console.log("request received, response: " + result);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+// POST endpoint para salvar uma nova entrada de catálogo no banco de dados
+app.post('/api/catalog-item', async (req, res) => {
+  const { material, decomposition_time, time_unit } = req.body;
+
+  try {
+    const result = await pool.query(
+      'INSERT INTO catalog_table (material, decomposition_time, time_unit) VALUES ($1, $2, $3) RETURNING *',
+      [material, decomposition_time, time_unit]
+    );
+
+    res.status(201).json(result.rows[0]);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal Server Error' });

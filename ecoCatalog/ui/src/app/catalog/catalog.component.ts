@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from '../services/database.service';
-import { NgIfContext } from '@angular/common';
 import { Catalog } from '../interfaces/catalog';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-catalog',
@@ -9,8 +9,9 @@ import { Catalog } from '../interfaces/catalog';
   styleUrls: ['./catalog.component.scss']
 })
 export class CatalogComponent implements OnInit {
-
+  displayedColumns: string[] = ['id', 'material', 'decomposition_time', 'time_unit'];
   fullCatalog!: Catalog[];
+  dataSource = new MatTableDataSource<Catalog>;
 
   constructor(private databaseService : DatabaseService) { }
 
@@ -20,6 +21,7 @@ export class CatalogComponent implements OnInit {
         this.fullCatalog = response;
       }
     })
+    this.dataSource.data = this.fullCatalog;
   }
   
 }
