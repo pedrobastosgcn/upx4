@@ -7,6 +7,9 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { DonateComponent } from './donate/donate.component';
 import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -20,7 +23,9 @@ import {MatTableModule} from '@angular/material/table';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule, 
+    FormsModule,
     MatTableModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

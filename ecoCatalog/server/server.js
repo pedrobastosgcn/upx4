@@ -22,7 +22,7 @@ app.get('/api/full-catalog', async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM catalog_table');
     res.json(result.rows);
-    console.log("request received, response: " + result);
+    console.log("request received, GET sucessful");
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal Server Error' });
@@ -40,6 +40,8 @@ app.post('/api/catalog-item', async (req, res) => {
     );
 
     res.status(201).json(result.rows[0]);
+    console.log("request received, POST sucessful");
+
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal Server Error' });

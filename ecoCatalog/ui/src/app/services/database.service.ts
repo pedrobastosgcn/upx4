@@ -21,5 +21,14 @@ export class DatabaseService {
     return this.http.get<Catalog[]>(this.url + '/api/full-catalog');
   }
 
+  /**
+   * @description A função faz um post no backend para salvar um novo registro na tablea de catalog
+   * @param catalog 
+   * @returns 
+   */
+  postNewCatalogItem(catalog: Catalog) : Observable<Catalog> {
+    return this.http.post<Catalog>(this.url + '/api/catalog-item', catalog);
+  }
+
 
 }

@@ -1,5 +1,5 @@
 export interface Catalog {
-    id: number,
+    id?: number,
     material: string,
     decomposition_time: number,
     time_unit: string,
