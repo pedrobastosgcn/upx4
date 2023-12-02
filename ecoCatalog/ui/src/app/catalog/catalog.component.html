@@ -1,24 +1,26 @@
-<form [formGroup]="catalogItem">
-    <div class="mb-3">
-      <label for="material" class="form-label">Material</label>
-      <input formControlName="material" type="text" class="form-control" id="material" aria-describedby="Material">
-    </div>
-    <div class="mb-3">
-      <label for="decomposition_time" class="form-label">Tempo de decomposição</label>
-      <input formControlName="decomposition_time" type="number" min="0" class="form-control" id="decomposition_time">
-    </div>
-    <div class="mb-3">
-        <label for="time_unit" class="form-label">Unidade de tempo</label>
-        <select formControlName="time_unit" id="time_unit" class="form-select">
-          <option>months</option>
-          <option>years</option>
-        </select>
-    </div>
-    <button type="submit" class="btn btn-primary" (click)="addNewEntry()">Submit</button>
-  </form>
 
 <div class="content d-flex justify-content-center align-items-center flex-column" style="width:100%">
-    <h1 class="main-paragraph mb-5 text-center">Aqui estão os principais materiais usados no dia-a-dia e seu tempo de decomposição</h1>
+    <form class="container" [formGroup]="catalogItem">
+        <div class="row">
+            <div class="mb-3 col">
+              <label for="material" class="form-label">Material</label>
+              <input formControlName="material" type="text" class="form-control" id="material" aria-describedby="Material">
+            </div>
+            <div class="mb-3 col">
+              <label for="decomposition_time" class="form-label">Tempo de decomposição</label>
+              <input formControlName="decomposition_time" type="number" min="0" class="form-control" id="decomposition_time">
+            </div>
+            <div class="mb-3 col">
+                <label for="time_unit" class="form-label">Unidade de tempo</label>
+                <select formControlName="time_unit" id="time_unit" class="form-select">
+                  <option>months</option>
+                  <option>years</option>
+                </select>
+            </div>
+        </div>
+    </form>
+    <button type="submit" class="btn btn-outline-success col-1 align-self-center" (click)="addNewEntry()">Submit</button>
+    <h1 class="main-paragraph mt-5 mb-5 text-center">Aqui estão os principais materiais usados no dia-a-dia e seu tempo de decomposição</h1>
     <div style="width:80%" *ngIf="fullCatalog">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
           
