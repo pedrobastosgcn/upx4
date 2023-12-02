@@ -2,3 +2,69 @@
     background-color: #A9B388;
     height: 90vh;
 }
+
+table {
+    width: 100%;
+    text-align: left;
+}
+.mat-elevation-z8{
+    width: 80%;
+    margin: auto;
+}
+#legend-span{
+    font-size: 0.8em;
+}
+  
+.mat-mdc-form-field {
+    font-size: 14px;
+    width: 80%;
+}
+
+mat-form-field{
+    width:50%;
+}
+  
+td, th {
+    width: 25%;
+}
+
+
+.row-highlight:hover{
+    background-color: #eee;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.page-title{
+    margin: auto;
+    margin-top:2%;
+    margin-bottom: 5%;
+}
+
+#btn-return {
+    padding: 15px 9px;
+    width: 100px;
+    border-radius: 9px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    margin-right: 1%;
+    margin-top: -1%;
+    float: right;
+}
+
+#btn-return:hover{
+    transition:ease-in-out 0.2s;
+    transform: translateX(3px) translateY(-3px);
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.centered-name {
+    font-size: 16px;
+}
+
+.tooltip-text {
+    font-size: 15px;
+    min-width: 50vh;
+    background-color: rgba(112, 112, 112, 0.93);
+}

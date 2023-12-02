@@ -15,13 +15,14 @@ export class CatalogComponent implements OnInit {
 
   constructor(private databaseService : DatabaseService) { }
 
+  // o ngOnInit está chamando o service que faz a requisição para API para obter o catálogo completo, isso é feito para preencher a tabela inicialmente
   ngOnInit(): void {
     this.databaseService.getFullCatalog().subscribe({
-      next: (response) => { 
-        this.fullCatalog = response;
+      next: (response) => {
+        this.fullCatalog = response; 
+        this.dataSource = new MatTableDataSource(this.fullCatalog);;
       }
     })
-    this.dataSource.data = this.fullCatalog;
   }
   
 }
