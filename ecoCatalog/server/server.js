@@ -22,6 +22,7 @@ app.get('/api/fullCatalog', async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM catalog_table');
     res.json(result.rows);
+    console.log("request received, response: " + result);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal Server Error' });
