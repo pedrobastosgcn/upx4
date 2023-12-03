@@ -28,6 +28,9 @@ export class CatalogComponent implements OnInit {
    this.updateTable();
   }
   
+  /**
+   * @description A função serve para adicionar uma nova entrada de item do catálogo no banco de dados
+   */
   addNewEntry(){
     const newCatalogItem = this.catalogItem.value as Catalog;
     this.databaseService.postNewCatalogItem(newCatalogItem).subscribe({
@@ -35,6 +38,9 @@ export class CatalogComponent implements OnInit {
     })
   }
 
+  /**
+   * @description A função serve para dar um update na tabela do banco de dados
+   */
   updateTable() {
     this.databaseService.getFullCatalog().subscribe({
       next: (response) => {
