@@ -18,8 +18,23 @@
     </form>
     <button type="submit" class="btn btn-outline-success col-1 align-self-center" (click)="insertDonation()">Doar</button>
 
-    <div *ngIf="donationList.length > 0" style="margin-top: 10%;">
-        <div *ngFor="let singleDonation of donationList">
+    
+    <div *ngIf="topDonatorsList.length > 0" style="margin-top: 10%;">
+        <h3>Here are the top donators:</h3>
+        <div *ngFor="let singleDonation of topDonatorsList">
+            <figure>
+                <blockquote class="blockquote">
+                  <p>{{singleDonation.donator_comment}}</p>
+                </blockquote>
+                <figcaption class="blockquote-footer">
+                    {{singleDonation.person_name}} - <cite>{{singleDonation.amount | number: '1.2-2'}}R$</cite>
+                </figcaption>
+              </figure>
+        </div>
+    </div>
+    <div *ngIf="recentDonatorsList.length > 0" class="mt-5">
+        <h3>Here are the most recent donators:</h3>
+        <div *ngFor="let singleDonation of recentDonatorsList">
             <figure>
                 <blockquote class="blockquote">
                   <p>{{singleDonation.donator_comment}}</p>

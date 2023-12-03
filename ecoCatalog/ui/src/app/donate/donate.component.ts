@@ -11,7 +11,8 @@ import { DatabaseService } from '../services/database.service';
 export class DonateComponent implements OnInit {
 
   newDonation: FormGroup;
-  donationList: Donation[] = [];
+  topDonatorsList: Donation[] = [];
+  recentDonatorsList: Donation[] = [];
 
   constructor(
     private fb : FormBuilder,
@@ -24,20 +25,25 @@ export class DonateComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.updateList();
+    this.updateLists();
   }
 
   insertDonation(){
     const newDonationEntry = this.newDonation.value as Donation;
     this.databaseService.addNewDonation(newDonationEntry).subscribe({
-      next: () => this.updateList()
+      next: () => this.updateLists()
     })
   }
 
-  updateList() {
-    this.databaseService.getFullDescDonatorList().subscribe({
+  updateLists() {
+    this.databaseService.getTopDonatorsList().subscribe({
       next: (response) => {
-        this.donationList = response;
+        this.topDonatorsList = response;
+      }
+    });
+    this.databaseService.getRecentDonatorsList().subscribe({
+      next: (response) => {
+        this.recentDonatorsList = response;
       }
     })
   }

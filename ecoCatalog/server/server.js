@@ -137,7 +137,7 @@ app.post('/api/donation', async (req, res) => {
 });
 
 // (READ) GET endpoint para obter todos os doadores (query param to see the order)
-app.get('/api/donations', async (req, res) => {
+app.get('/api/top-donations', async (req, res) => {
   try {
     const { desc } = req.query;
 
@@ -149,11 +149,12 @@ app.get('/api/donations', async (req, res) => {
     const query = `
       SELECT * 
       FROM donations 
-      ORDER BY amount ${sortOrder}`;
+      ORDER BY amount ${sortOrder}
+      LIMIT 10`;
 
     const result = await pool.query(query);
     res.json(result.rows);
-    console.log("GET api/donations request received, GET sucessful");
+    console.log("GET api/top-donations request received, GET sucessful");
 
   } catch (error) {
     console.error(error);

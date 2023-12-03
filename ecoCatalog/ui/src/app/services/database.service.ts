@@ -35,11 +35,15 @@ export class DatabaseService {
    * @description A função acessa a rota do backend /api/donations para obter a lista completa de donations em ordem decrescente de amount
    * @returns Observable do tipo Donation[]
    */
-  getFullDescDonatorList() : Observable<Donation[]> {
-    return this.http.get<Donation[]>(this.url + '/api/donations?desc=true');
+  getTopDonatorsList() : Observable<Donation[]> {
+    return this.http.get<Donation[]>(this.url + '/api/top-donations?desc=true');
   }
 
-  addNewDonation(donation: Donation) {
+  getRecentDonatorsList() : Observable<Donation[]> {
+    return this.http.get<Donation[]>(this.url + '/api/recent-donations');
+  }
+
+  addNewDonation(donation: Donation) : Observable<Donation> {
     return this.http.post<Donation>(this.url + '/api/donation', donation);
   }
 
