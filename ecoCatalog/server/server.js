@@ -23,7 +23,6 @@ app.use(bodyParser.json());
  // (CREATE) POST endpoint para salvar uma nova entrada de catálogo no banco de dados
 app.post('/api/catalog-item', async (req, res) => {
   const { material, decomposition_time, time_unit } = req.body;
-
   try {
     const result = await pool.query(
       'INSERT INTO catalog_table (material, decomposition_time, time_unit) VALUES ($1, $2, $3) RETURNING *',
@@ -51,6 +50,21 @@ app.get('/api/full-catalog', async (req, res) => {
   }
 });
 
+// (READ) GET endpoint para obter um item do catálogo pelo Id
+app.get('/api/catalog/:id', async (req, res) => {
+  const itemId = req.params.id;
+  try {
+    const result = await pool.query('SELECT * FROM catalog_table WHERE id = $1',
+    [itemId]
+    );
+    res.json(result.rows);
+    console.log("request received, GET sucessful");
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 // (UPDATE) PUT endpoint para atualizar um registro no banco de dados através do Id
 app.put('/api/catalog/:id', async (req, res) => {
   const itemId = req.params.id;
@@ -67,6 +81,8 @@ app.put('/api/catalog/:id', async (req, res) => {
       res.status(404).json({ error: 'Item not found' });
     } else {
       res.json(result.rows[0]);
+      console.log("request received, PUT sucessful");
+
     }
   } catch (error) {
     console.error(error);
@@ -75,7 +91,7 @@ app.put('/api/catalog/:id', async (req, res) => {
 });
 
 // (DELETE) DELETE endpoint para excluir um registro no banco de dados pelo Id
-app.put('/api/catalog/:id', async (req, res) => {
+app.delete('/api/catalog/:id', async (req, res) => {
   const itemId = req.params.id;
   
   try {
@@ -89,6 +105,8 @@ app.put('/api/catalog/:id', async (req, res) => {
       res.status(404).json({ error: 'Item not found' });
     } else {
       res.json({ message: 'Item deleted successfully' });
+      console.log("request received, DELETE sucessful");
+
     }
   } catch (error) {
     console.error(error);
