@@ -16,4 +16,4 @@
 - Abra o navegador em localhost:4200 para ver a aplicação rodando.
 
 #
-###### Made by: João Hunhoff, Pedro Hunhoff, Pedro Bastos, Rafael Munhoz, Gabriel Sales
+###### Made by: João Hunhoff, Pedro Hunhoff, Pedro Bastos, Rafael Muñoz, Gabriel Sales

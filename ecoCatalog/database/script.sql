@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS donations (
     id SERIAL PRIMARY KEY,
     person_name VARCHAR(50) NOT NULL,    
     donator_comment TEXT,
-    amount FLOAT NOT NULL
+    amount FLOAT NOT NULL,
     createdAt TIMESTAMP DEFAULT NOW()
 );
 
