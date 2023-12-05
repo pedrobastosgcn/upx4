@@ -12,3 +12,13 @@ CREATE TABLE IF NOT EXISTS donations (
     amount FLOAT NOT NULL
     createdAt TIMESTAMP DEFAULT NOW()
 );
+
+INSERT INTO catalog_table (material, decomposition_time, time_unit) VALUES
+    ('Papel', 6, 'meses'),
+    ('Tecido', 1, 'ano'),
+    ('Madeira pintada', 13, 'anos'),
+    ('Nylon', 20, 'anos'),
+    ('Metal', 100, 'anos'),
+    ('Alumínio', 200, 'anos'),
+    ('Plástico', 400, 'anos'),
+    ('Vidro', 1000, 'anos');
