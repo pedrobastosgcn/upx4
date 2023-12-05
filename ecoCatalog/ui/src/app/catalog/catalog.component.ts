@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./catalog.component.scss']
 })
 export class CatalogComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'material', 'decomposition_time', 'time_unit'];
+  displayedColumns: string[] = ['material', 'decomposition_time', 'time_unit'];
   fullCatalog!: Catalog[];
   dataSource = new MatTableDataSource<Catalog>;
   catalogItem: FormGroup;

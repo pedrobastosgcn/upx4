@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -18,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     LandingPageComponent,
     CatalogComponent,
     DonateComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

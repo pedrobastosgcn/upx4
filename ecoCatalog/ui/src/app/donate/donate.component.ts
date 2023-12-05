@@ -24,10 +24,16 @@ export class DonateComponent implements OnInit {
     })
   }
 
+  /**
+   * @description o OnInit lifecycle hook chama a função para preencher as listas de novas e últimas doações
+   */
   ngOnInit(): void {
     this.updateLists();
   }
 
+  /**
+   * @description A função é chamada pelo botão de doar e faz uma request para o backend para adicionar a nova doação
+   */
   insertDonation(){
     const newDonationEntry = this.newDonation.value as Donation;
     this.databaseService.addNewDonation(newDonationEntry).subscribe({
@@ -35,6 +41,9 @@ export class DonateComponent implements OnInit {
     })
   }
 
+  /**
+   * @description A função é chamada ao carregar a pagina e ao incluir uma nova doação, ela atualiza a lista das doações recentes e das maiores doações, para refletir no front
+   */
   updateLists() {
     this.databaseService.getTopDonatorsList().subscribe({
       next: (response) => {

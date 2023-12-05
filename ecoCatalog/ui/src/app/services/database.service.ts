@@ -39,10 +39,19 @@ export class DatabaseService {
     return this.http.get<Donation[]>(this.url + '/api/top-donations?desc=true');
   }
 
+  /**
+   * @description A função acessa a rota do backend /api/recent-donations para pegar as últimas 10 doações realizadas
+   * @returns Observable do tipo Donation[]
+   */
   getRecentDonatorsList() : Observable<Donation[]> {
     return this.http.get<Donation[]>(this.url + '/api/recent-donations');
   }
 
+  /**
+   * @description A função adiciona uma nova entrada de doação ao banco de dados
+   * @param donation 
+   * @returns Observable do tipo Donation
+   */
   addNewDonation(donation: Donation) : Observable<Donation> {
     return this.http.post<Donation>(this.url + '/api/donation', donation);
   }
