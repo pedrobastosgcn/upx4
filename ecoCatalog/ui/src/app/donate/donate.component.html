@@ -1,0 +1,48 @@
+<div class="content d-flex align-items-center flex-column">
+    <h3 class="mt-3">Deixe uma doação para ajudar no projeto:</h3>
+    <form class="container mt-5" [formGroup]="newDonation">
+        <div class="row">
+            <div class="mb-3 col">
+              <label for="person_name" class="form-label">Nome do doador</label>
+              <input formControlName="person_name" type="text" class="form-control" id="person_name" aria-describedby="nome do doador">
+            </div>
+            <div class="mb-3 col">
+              <label for="donator_comment" class="form-label">Comentário</label>
+              <input formControlName="donator_comment" type="textarea" maxlength="255" class="form-control" id="donator_comment">
+            </div>
+            <div class="mb-3 col">
+                <label for="amount" class="form-label">Quantidade doada</label>
+                <input formControlName="amount" type="number" min="0" class="form-control" id="amount">
+            </div>
+        </div>
+    </form>
+    <button type="submit" class="btn btn-outline-success col-1 align-self-center" (click)="insertDonation()">Doar</button>
+
+    
+    <div *ngIf="topDonatorsList.length > 0" style="margin-top: 10%;" class="align-self-start ps-5">
+        <h3>Nossos maiores doadores:</h3>
+        <div *ngFor="let singleDonation of topDonatorsList">
+            <figure>
+                <blockquote class="blockquote">
+                  <p>{{singleDonation.donator_comment}}</p>
+                </blockquote>
+                <figcaption class="blockquote-footer">
+                    {{singleDonation.person_name}} - <cite>{{singleDonation.amount | number: '1.2-2'}}R$</cite>
+                </figcaption>
+              </figure>
+        </div>
+    </div>
+    <div *ngIf="recentDonatorsList.length > 0" class="mt-5 align-self-start ps-5" >
+        <h3>Nossos doadores mais recentes:</h3>
+        <div *ngFor="let singleDonation of recentDonatorsList">
+            <figure>
+                <blockquote class="blockquote">
+                  <p>{{singleDonation.donator_comment}}</p>
+                </blockquote>
+                <figcaption class="blockquote-footer">
+                    {{singleDonation.person_name}} - <cite>{{singleDonation.amount | number: '1.2-2'}}R$</cite>
+                </figcaption>
+              </figure>
+        </div>
+    </div>
+</div>

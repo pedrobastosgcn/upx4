@@ -1,0 +1,77 @@
+<div class="content">
+  <div class="header-helper text-center d-flex justify-content-center align-items-center">
+    <p class="mt-2">
+      Conheça algumas iniciativas de reciclagem que apoiamos
+    </p>
+
+  </div>
+  <!-- abaixo está um bootstrap carousel que estamos usando para mostrar diferentes projetos -->
+  <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="5000">
+        <a href="https://lixozerobs.org.br/" target="_blank">
+          <img src="../../assets/lixozero.png" class="d-block w-100" height="700" alt="Projeto Lixo Zero">
+        </a>
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Projeto Lixo Zero</h5>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="5000">
+        <a href="https://reciclarpelobrasil.com.br/" target="_blank">
+          <img src="../../assets/reciclarpelobrasil.png" class="d-block w-100" height="700"
+            alt="Projeto Reciclar Pelo Brasil">
+        </a>
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Projeto Reciclar Pelo Brasil</h5>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="5000">
+        <a href="https://rotadareciclagem.com.br/" target="_blank">
+          <img src="../../assets/rotadareciclagem.png" class="d-block w-100" height="700"
+            alt="Projeto Rota de Reciclagem Tetra Pak">
+        </a>
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Projeto Rota de Reciclagem Tetra Pak</h5>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <br>
+  <p class="fw-bold mb-2 fs-4 ps-2">Você sabe o que é a reciclagem?</p>
+  <p class="fs-5 ps-2">A reciclagem é o processo de reaproveitamento de materiais descartados. Seu objetivo é reintroduzi-los na cadeia
+    produtiva a fim de que ainda gerem valor e sejam reutilizados, aumentando a preservação dos recursos naturais e
+    melhorando a qualidade de vida das pessoas. É considerada uma das alternativas mais eficientes para tratar os
+    resíduos sólidos, tanto do ponto de vista ambiental quanto social, e está diretamente inserida no contexto da
+    economia circular.</p>
+  <p class="fs-5 ps-2">Alguns materiais demoram muito tempo para se degradarem no meio-ambiente, causando poluição de solo, atmosférica
+    além de prejudicar a existência de algumas espécies, que acabam ingerindo esses descartes sem saber de seus efeitos
+    no organismo. </p>
+  <p class="fw-bold mb-2 fs-4 ps-2">Tempo de degradação de alguns materiais:</p> 
+  <!-- aqui estamos chamando o componente catalog que é uma table do angular material que é um GET de uma tabela do banco de dados -->
+  <app-catalog></app-catalog>
+  <p class="mt-3 fs-5 ps-2">A tabela mostra a importância de reaproveitarmos o máximo possível dos materiais, dado tanto o aumento da sua escassez com o
+    aumento da demanda da nossa sociedade atual, quanto o tempo que eles levam para serem "absorvidos" novamente pelo nosso
+    planeta.</p>
+  <p class="fs-5 ps-2">Nós da ecoCatalog apoiamos diversas iniciativas que ajudam a cuidar do nosso planeta por meio da reciclagem e da economia circular, você
+    também pode ajudar nessa empreitada por meio de uma simples doação, que será completamente revertida nos projetos apresentados no carrossel.
+    Para fazer isso basta ir na aba "Faça uma doação", deixar o seu nome, uma mensagem e qualquer quantia.
+  </p>
+    <br><br><br>
+  
+</div>

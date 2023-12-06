@@ -1,0 +1,27 @@
+<div class="d-flex mt-5 align-items-center flex-column" style="width:100%">
+  <div style="width:80%" *ngIf="fullCatalog">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!-- material Column -->
+      <ng-container matColumnDef="material">
+        <th mat-header-cell *matHeaderCellDef class="text-center"> material </th>
+        <td mat-cell class="text-center" *matCellDef="let element"> {{element.material}} </td>
+      </ng-container>
+
+      <!-- decomposition_time Column -->
+      <ng-container matColumnDef="decomposition_time">
+        <th mat-header-cell *matHeaderCellDef class="text-center"> Decomposition time </th>
+        <td mat-cell class="text-center" *matCellDef="let element"> {{element.decomposition_time}} </td>
+      </ng-container>
+
+      <!-- time_unit Column -->
+      <ng-container matColumnDef="time_unit">
+        <th mat-header-cell *matHeaderCellDef class="text-center"> Time unit </th>
+        <td mat-cell class="text-center" *matCellDef="let element"> {{element.time_unit}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>
