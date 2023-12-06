@@ -11,7 +11,7 @@ const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
   database: 'ecocatalogdb',
-  password: 'gremio',
+  password: 'Pedro.santos1',
   port: 5432,
 });
 
